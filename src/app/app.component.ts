@@ -30,6 +30,11 @@ export class AppComponent implements OnInit {
     const nameControl = new FormControl('');
     const numberControl = new FormControl('');
 
+    this.addBankAccountToFormGroup(nameControl, numberControl);
+    this.addFormFields(label, nameControl, numberControl);
+  }
+
+  addBankAccountToFormGroup(nameControl, numberControl) {
     // create formGroup to add to FormArray
     const group = new FormGroup({
       name: nameControl,
@@ -37,8 +42,9 @@ export class AppComponent implements OnInit {
     });
 
     this.bankAccountsFormArray.push(group);
+  }
 
-
+  addFormFields(label, nameControl, numberControl) {
     // add formfields to visual representation of this formGroup
     let bankAccount = {
       label: 'bank account ' + label,
